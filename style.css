@@ -39,17 +39,58 @@ html, body {
   position: absolute;
   top: -40px;
   left: 0;
+  animation: drive 4s both infinite linear, jump 1s 1.2s ease;
+}
+
+.luigi {
+  position: absolute;
+  top: 100px;
+  left: 0;
   animation-name: drive;
-  animation-duration: 3s; 
+  animation-duration: 5s; 
   animation-fill-mode: both;
-  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear
+}
+
+.cloud {
+  position: absolute
+}
+
+.cloud:nth-child(1) {
+  width: 200px;
+  top: 120px;
+  opacity: .5;
+  animation: wind 80s linear infinite reverse
+             
+}
+
+.cloud:nth-child(2) {
+  width: 300px;
+  top: 0;
+  animation: wind 50s linear infinite reverse
 }
 
 @keyframes drive {
   from {
-    transform: translateX(200px)
+    transform: translateX(-200px)
   }
   to {
-    transform: translateX(700px)
+    transform: translateX(calc(100vw + 100px))
   } 
+}
+
+@keyframes wind {
+  from {
+    left: -300px
+  }
+  to {
+    left: 100%
+  }
+}
+
+@keyframes jump {
+  0% { top: -40px}
+  50% { top: -100px}
+  100% { top: -40px}
 }
